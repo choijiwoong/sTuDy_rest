@@ -47,4 +47,18 @@ public class UserService {
         user.setPassword(member.getPassword());
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    public ResponseEntity<> login(LoginDTO loginDTO) {
+        if(loginDTO.getId() == null){
+            return new ResponseEntity<>("This Area cannot be empty", HttpStatus.BAD_REQUEST);
+        }
+        if(loginDTO.getPassword() == null){
+            return new ResponseEntity<>("This Area cannot be empty", HttpStatus.BAD_REQUEST);
+        }
+
+        if(!(loginDTO.getId().equals(user.getId())) || !(loginDTO.getPassword().equals(user.getPassword()))){
+            return new ResponseEntity<>("Check your ID or Password", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
