@@ -11,7 +11,7 @@ public class WebController {
         return "index.html";
     }
     @GetMapping("/login")
-    public String login() {return "login.html";}
+    public String login() {return "login";}
     @GetMapping("/register")
-    public String register() {return "register.html";}
+    public String register() {return "register";}
 }

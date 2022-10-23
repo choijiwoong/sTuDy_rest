@@ -19,5 +19,7 @@ public class Member {
         member.setAddress(memberDTO.getAddress());
         member.setPhone(memberDTO.getPhone());
         member.setEmail(memberDTO.getEmail());
+
+        return member;
     }
 }

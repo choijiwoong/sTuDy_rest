@@ -9,7 +9,7 @@ import static java.util.regex.Pattern.matches;
 
 public class UserService {
     static User user = new User();
-    public ResponseEntity<> register(MemberDTO memberDTO) {
+    public ResponseEntity register(MemberDTO memberDTO) {
 
         Member member = new Member();
         member.registerMember(memberDTO);
@@ -48,7 +48,7 @@ public class UserService {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    public ResponseEntity<> login(LoginDTO loginDTO) {
+    public ResponseEntity login(LoginDTO loginDTO) {
         if(loginDTO.getId() == null){
             return new ResponseEntity<>("This Area cannot be empty", HttpStatus.BAD_REQUEST);
         }

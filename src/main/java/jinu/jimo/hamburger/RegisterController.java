@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController//모든 function에 @ResponseBody for JSON
 @RequiredArgsConstructor
 public class RegisterController {
 

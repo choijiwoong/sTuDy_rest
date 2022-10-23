@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</head>
+<body>
+<script>
+    $(function(){
+		$('#ajaxCall').click(function(){
+			let data={'id': document.getElementById("id").value, 'password': document.getElementById("password").value};
+
+			let request = $.ajax({
+			  url: "http://localhost:8080/register",
+			  method: "POST",
+			  data: JSON.stringify(data),
+			  dataType: "json"
+			});
+
+			request.done(function(data) {
+			  	console.log(data);
+				if(data != undefined && data != ''){
+					alert("data is empty!");
+				}
+			});
+
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus+);
+			});
+		});
+	});
+</script>
+
+<p>id <input id="id" type="text" name="id_input"></p>
+
+<p>password <input id="password" type="text" name="password_input"></p>
+
+<input type="button" id="ajaxCall" value="summit"/>
+
+</body>
+</html>
